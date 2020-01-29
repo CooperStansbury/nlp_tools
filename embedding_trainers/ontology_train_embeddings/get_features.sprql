@@ -1,0 +1,10 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+
+SELECT DISTINCT ?purl ?superClassPurl ?label ?definition
+WHERE {
+  ?purl rdfs:subClassOf ?superClassPurl .
+  ?purl rdfs:label ?label .
+  OPTIONAL { ?purl obo:IAO_0000115 ?definition }
+}
